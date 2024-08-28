@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive GIF</title>
+    <style>
+        /* 設置 HTML 和 Body 的高度和寬度為 100% */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        /* 設置 GIF 容器的高度和寬度為 100% */
+        .gif-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 設置 GIF 的寬度和高度為 100%，以便 GIF 跟隨容器大小縮放 */
+        .gif-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* 適應 GIF 容器的大小 */
+        }
+    </style>
+</head>
+<body>
+    <div class="gif-container">
+        <a href="https://github.com/yvonne859635/linebot.git" target="_blank">
+            <img src="我到拉.gif" alt="Clickable GIF">
+        </a>
+    </div>
+</body>
+</html>
+
+
