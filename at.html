@@ -31,24 +31,26 @@
         }
     </style>
     <script>
-        // 用來偵測是否可以回到此頁面
+        // 用來偵測是否已經訪問過此頁面
         window.onload = function() {
-            if (sessionStorage.getItem("pageVisited")) {
-                // 如果已經造訪過，將頁面設為失效
-                document.body.innerHTML = "<h1>This page is no longer available.</h1>";
+            if (localStorage.getItem("pageVisited")) {
+                // 如果已經造訪過，顯示頁面無法再進入的訊息
+                document.body.innerHTML = "<h1>This page is no longer available. You cannot enter again.</h1>";
             }
         }
 
-        // 點擊 GIF 之後進行跳轉並關閉當前頁面
+        // 點擊 GIF 後進行跳轉，並將頁面標記為已訪問
         function redirectAndClose() {
-            sessionStorage.setItem("pageVisited", "true");
-            window.location.replace("https://u.lin.ee/j6jJ39C"); // 跳轉到目標 URL
+            // 設置已經訪問的標記
+            localStorage.setItem("pageVisited", "true");
+            // 跳轉到指定 URL
+            window.location.replace("https://u.lin.ee/j6jJ39C");
         }
     </script>
 </head>
 <body>
     <div class="gif-container">
-        <!-- 將連結換成 onClick 事件觸發 JavaScript -->
+        <!-- 點擊 GIF 後觸發跳轉和標記 -->
         <img src="1.png" alt="Clickable GIF" onclick="redirectAndClose()">
     </div>
 </body>
