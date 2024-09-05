@@ -30,14 +30,26 @@
             object-fit: contain; /* 適應 GIF 容器的大小 */
         }
     </style>
+    <script>
+        // 用來偵測是否可以回到此頁面
+        window.onload = function() {
+            if (sessionStorage.getItem("pageVisited")) {
+                // 如果已經造訪過，將頁面設為失效
+                document.body.innerHTML = "<h1>This page is no longer available.</h1>";
+            }
+        }
+
+        // 點擊 GIF 之後進行跳轉並關閉當前頁面
+        function redirectAndClose() {
+            sessionStorage.setItem("pageVisited", "true");
+            window.location.replace("https://u.lin.ee/j6jJ39C"); // 跳轉到目標 URL
+        }
+    </script>
 </head>
 <body>
     <div class="gif-container">
-        <a href="https://github.com/yvonne859635/linebot.git" target="_blank">
-            <img src="我到拉.gif" alt="Clickable GIF">
-        </a>
+        <!-- 將連結換成 onClick 事件觸發 JavaScript -->
+        <img src="1.png" alt="Clickable GIF" onclick="redirectAndClose()">
     </div>
 </body>
 </html>
-
-
