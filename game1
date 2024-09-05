@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive GIF</title>
+    <style>
+        /* 設置 HTML 和 Body 的高度和寬度為 100% */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        /* 設置 GIF 容器的高度和寬度為 100% */
+        .gif-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 設置 GIF 的寬度和高度為 100%，以便 GIF 跟隨容器大小縮放 */
+        .gif-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* 適應 GIF 容器的大小 */
+        }
+    </style>
+    <script>
+        // 用來偵測是否已經訪問過此頁面
+        window.onload = function() {
+            if (localStorage.getItem("pageVisited")) {
+                // 如果已經造訪過，顯示頁面無法再進入的訊息
+                document.body.innerHTML = "<h1>領過獎了不能再領囉！</h1>";
+            }
+        }
+
+        // 點擊 GIF 後進行跳轉，並將頁面標記為已訪問
+        function redirectAndClose() {
+            // 設置已經訪問的標記
+            localStorage.setItem("pageVisited", "true");
+            // 跳轉到指定 URL
+            window.location.replace("https://u.lin.ee/j6jJ39C");
+        }
+    </script>
+</head>
+<body>
+    <div class="gif-container">
+        <!-- 點擊 GIF 後觸發跳轉和標記 -->
+        <img src="1.png" alt="Clickable GIF" onclick="redirectAndClose()">
+    </div>
+</body>
+</html>
